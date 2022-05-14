@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <gradient
+        android:startColor="@color/dark_green_but_less_transparent"
+        android:endColor="@color/weird_green_but_transparent"
+        android:angle="45" />
+
+    <corners android:bottomLeftRadius="100dip"
+        android:topRightRadius="100dip"
+        android:topLeftRadius="100dip"
+        android:bottomRightRadius="100dip" />
+
+    <stroke
+        android:width="8px"
+        android:color="@color/dark_green_but_transparent" />
+
+</shape>
+

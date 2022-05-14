@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="black">#FF000000</color>
+    <color name="brown">#FF40362b</color>
+    <color name="dark_green">#FF3E8444</color>
+    <color name="just_green">#FF61C86A</color>
+    <color name="weird_green">#FF95C422</color>
+    <color name="lemon_green">#FFB3EA2C</color>
+    <color name="yellowish_green">#FFE8FE9A</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="dark_green_but_transparent">#663E8444</color>
+    <color name="dark_green_but_less_transparent">#CC3E8444</color>
+    <color name="weird_green_but_transparent">#B37DF411</color>
+    <color name="yellow_but_transparent">#B3F4E955</color>
+    <color name="yellowish_green_but_transparent">#66E8FE9A</color>
+    <color name="just_yellow_but_transparent">#99FFFF99</color>
+    <color name="white_but_transparent">#B3FFFFFF</color>
+
+<!--
+    HEX dla przezroczystosci:
+
+    100% — FF
+    95% — F2
+    90% — E6
+    85% — D9
+    80% — CC
+    75% — BF
+    70% — B3
+    65% — A6
+    60% — 99
+    55% — 8C
+    50% — 80
+    45% — 73
+    40% — 66
+    35% — 59
+    30% — 4D
+    25% — 40
+    20% — 33
+    15% — 26
+    10% — 1A
+    5% — 0D
+    0% — 00
+-->
+</resources>
