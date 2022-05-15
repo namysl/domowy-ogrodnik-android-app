@@ -74,7 +74,7 @@ class AddPlantActivity : AppCompatActivity() {
                     newPlant.path = picture
                     newPlant.name = editText!!.text.toString()
 
-                    CoroutineScope(IO).launch {
+                    CoroutineScope(IO).launch{
                         ClientDB.getInstance(applicationContext)?.appDatabase?.plantsDAO()?.insert(newPlant)
                     }
 
