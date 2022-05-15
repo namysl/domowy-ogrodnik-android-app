@@ -18,9 +18,6 @@ import com.example.domowyogrodnik.MyListAdapter
 import com.example.domowyogrodnik.R
 import com.example.domowyogrodnik.db.ClientDB
 import com.example.domowyogrodnik.db.PlantsDB
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
 
 
 class PlantsFragment : Fragment() {
@@ -32,35 +29,18 @@ class PlantsFragment : Fragment() {
 
         button = rootView.findViewById(R.id.button)
 
-        button?.setOnClickListener { view ->
+        button?.setOnClickListener{
             val intent = Intent (activity, AddPlantActivity::class.java)
             activity?.startActivity(intent)
         }
 
         listView = rootView.findViewById(R.id.listView)
-        var list = mutableListOf<Model>()
-
-//        CoroutineScope(IO).launch{
-//            //dane z bazy
-//            var db = ClientDB.getInstance(requireContext())?.appDatabase?.plantsDAO()?.allDesc()
-//            println("# $db")
-//            println("# " + db?.size)
-//            println("# " + db?.get(0)?.path + " " + db?.get(0)?.name)
-//
-//            //w wątku lista też :(
-//            if (db != null) {
-//                for (element in db)
-//                    list.add(Model(element.name, "opisik", R.drawable.gradient_textview))
-//
-//            }
-//        }
+        val list = mutableListOf<Model>()
 
         class LoadFromDB : AsyncTask<Void?, Void?, List<PlantsDB>?>() {
-            protected override fun doInBackground(vararg p0: Void?): List<PlantsDB>? {
+            override fun doInBackground(vararg p0: Void?): List<PlantsDB>? {
                 //retrieve data from DB
-                var db = ClientDB.getInstance(requireContext())?.appDatabase?.plantsDAO()?.allDesc()
-                println("# DB: $db")
-                return db
+                return ClientDB.getInstance(requireContext())?.appDatabase?.plantsDAO()?.allDesc()
             }
 
             override fun onPostExecute(db: List<PlantsDB>?) {
@@ -68,49 +48,33 @@ class PlantsFragment : Fragment() {
 
                 if (db != null) {
                     for (element in db)
-                        list.add(Model(element.name, "opisik", element.path!!))
+                        list.add(Model(element.name, "opisik", element.path!!))  //TODO
 
-                }
+                    listView.adapter = MyListAdapter(requireContext(), R.layout.single_item, list)
+                    listView.setOnItemClickListener { parent, view, position, id ->
 
-//                list.add(Model("A", "Description A...", R.drawable.gradient_buttons))
-//                list.add(Model("B", "Description B...", R.drawable.gradient_list))
-//                list.add(Model("C", "Description C...", R.drawable.gradient_navigation))
-//                list.add(Model("D", "Description D...", R.drawable.gradient_textview))
+                        if (position == 0) {
+                            Toast.makeText(context, "This is A", Toast.LENGTH_SHORT).show()
 
-                listView.adapter = MyListAdapter(requireContext(), R.layout.single_item, list)
+                            val alertadd = AlertDialog.Builder(context)
+                            val factory = LayoutInflater.from(context)
+                            val view: View = factory.inflate(R.layout.picture_popup, null)
 
-                listView.setOnItemClickListener { parent, view, position, id ->
+                            // change the ImageView image source
+                            val dialogImageView: ImageView =
+                                view.findViewById<View>(R.id.dialog_imageview) as ImageView
+                            dialogImageView.setImageResource(R.drawable.ic_plants)
 
-                    if (position == 0) {
-                        Toast.makeText(context, "This is A", Toast.LENGTH_SHORT).show()
+                            alertadd.setView(view)
+                            alertadd.setTitle(":)")
+                            alertadd.setNeutralButton("OK") { dlg, sumthin -> }
 
-                        val alertadd = AlertDialog.Builder(context)
-                        val factory = LayoutInflater.from(context)
-                        val view: View = factory.inflate(R.layout.picture_popup, null)
+                            alertadd.show()
 
-                        // change the ImageView image source
-                        val dialogImageView: ImageView =
-                            view.findViewById<View>(R.id.dialog_imageview) as ImageView
-                        dialogImageView.setImageResource(R.drawable.ic_plants)
-
-                        alertadd.setView(view)
-                        alertadd.setTitle(":)")
-                        alertadd.setNeutralButton("OK") { dlg, sumthin -> }
-
-                        alertadd.show()
-
-                    }
-                    if (position == 1) {
-                        Toast.makeText(context, "This is Java", Toast.LENGTH_SHORT).show()
-                    }
-                    if (position == 2) {
-                        Toast.makeText(context, "This is cplusplus", Toast.LENGTH_SHORT).show()
-                    }
-                    if (position == 3) {
-                        Toast.makeText(context, "This is Kotlin", Toast.LENGTH_SHORT).show()
-                    }
-                    if (position == 4) {
-                        Toast.makeText(context, "This is Flutter", Toast.LENGTH_SHORT).show()
+                        }
+                        if (position == 1) {
+                            Toast.makeText(context, "This is Java", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }

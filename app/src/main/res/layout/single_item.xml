@@ -12,25 +12,36 @@
         android:src="@drawable/ic_plants"
         android:layout_width="80dp"
         android:layout_height="80dp" />
+
     <LinearLayout
-        android:layout_margin="15dp"
-        android:layout_width="match_parent"
+        android:layout_width="213dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_margin="15dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/titleTv"
-            android:layout_width="match_parent"
+            android:layout_width="213dp"
             android:layout_height="wrap_content"
             android:text="Title"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/descTv"
-            android:text="Description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:text="Description" />
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/button3"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/gradient_buttons"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:src="@drawable/ic_delete"
+        android:theme="@android:style/ThemeOverlay.Material.Dark" />
 
 </LinearLayout>

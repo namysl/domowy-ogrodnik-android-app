@@ -37,6 +37,7 @@ class HomeFragment : Fragment() {
         textView_hello?.text = getString(R.string.description)
         textView_stats?.text = "Tutaj statystyki"
 
+        //TODO animacja to chyba overkill
         val animationFadeIn = AnimationUtils.loadAnimation(rootView.context, R.anim.fade)
         logo?.startAnimation(animationFadeIn)
         textView_hello?.startAnimation(animationFadeIn)
