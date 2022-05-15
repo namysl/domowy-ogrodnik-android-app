@@ -2,9 +2,10 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     android:orientation="horizontal"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:background="@drawable/gradient_textview" >
 
     <ImageView
         android:id="@+id/iconIv"
@@ -12,17 +13,19 @@
         android:layout_width="80dp"
         android:layout_height="80dp" />
     <LinearLayout
-        android:layout_margin="5dp"
+        android:layout_margin="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/titleTv"
-            android:text="Title"
-            android:textSize="15sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/descTv"
             android:text="Description"

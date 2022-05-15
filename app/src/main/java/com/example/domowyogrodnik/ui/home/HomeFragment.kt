@@ -14,7 +14,8 @@ import com.example.domowyogrodnik.R
 
 class HomeFragment : Fragment() {
     var button: Button? = null
-    var textView: TextView? = null
+    var textView_hello: TextView? = null
+    var textView_stats: TextView? = null
     var logo: CardView? = null
 
     override fun onCreateView(
@@ -25,18 +26,22 @@ class HomeFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_home, container, false)
 
         button = rootView.findViewById(R.id.button)
-        textView = rootView.findViewById(R.id.text_home)
+        textView_hello = rootView.findViewById(R.id.text_home)
+        textView_stats = rootView.findViewById(R.id.text_home2)
         logo = rootView.findViewById(R.id.cardView2)
 
         button?.setOnClickListener { view ->
             Toast.makeText(view.context, "Kliknięto!", Toast.LENGTH_SHORT).show()
         }
 
-        textView?.text = getString(R.string.description)
+        textView_hello?.text = getString(R.string.description)
+        textView_stats?.text = "Tutaj statystyki"
 
         val animationFadeIn = AnimationUtils.loadAnimation(rootView.context, R.anim.fade)
         logo?.startAnimation(animationFadeIn)
-
+        textView_hello?.startAnimation(animationFadeIn)
+        textView_stats?.startAnimation(animationFadeIn)
+        button?.startAnimation(animationFadeIn)
 
         return rootView
     }

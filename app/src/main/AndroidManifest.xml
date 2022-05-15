@@ -24,7 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddPlantActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:label="Dodaj nową roślinę" >
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

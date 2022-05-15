@@ -8,31 +8,51 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_home"
-        android:layout_width="244dp"
-        android:layout_height="188dp"
+        android:layout_width="275dp"
+        android:layout_height="62dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/gradient_textview"
 
+        android:background="@drawable/gradient_textview"
         android:padding="10dp"
         android:shadowColor="@color/dark_green"
         android:shadowDx="0.0"
         android:shadowDy="0.0"
-        android:shadowRadius="10"
 
+        android:shadowRadius="10"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"
-        app:layout_constraintVertical_bias="0.113" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_home2"
+        android:layout_width="275dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/gradient_textview"
+        android:padding="10dp"
+        android:shadowColor="@color/dark_green"
+        android:shadowDx="0.0"
+
+        android:shadowDy="0.0"
+        android:shadowRadius="10"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="155dp"
-        android:layout_height="155dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         app:cardBackgroundColor="@color/yellowish_green"
         app:cardCornerRadius="250dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,15 +63,15 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_gravity="center"
             app:cardCornerRadius="250dp">
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/logo_home" />
         </androidx.cardview.widget.CardView>
@@ -62,14 +82,14 @@
         android:layout_width="250dp"
         android:layout_height="49dp"
         android:background="@drawable/gradient_buttons"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="@string/button1"
+        android:theme="@android:style/ThemeOverlay.Material.Dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_bias="0.227"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:theme="@android:style/ThemeOverlay.Material.Dark" />
+        app:layout_constraintTop_toBottomOf="@+id/text_home2"
+        app:layout_constraintVertical_bias="0.173" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
