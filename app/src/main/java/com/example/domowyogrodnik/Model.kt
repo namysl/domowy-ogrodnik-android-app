@@ -1,3 +1,3 @@
 package com.example.domowyogrodnik
 
-class Model(val title: String?, val desc: String?, val photo: String)
+class Model(val name: String?, val description: String?, val photo: String)

@@ -9,12 +9,17 @@
     <string name="button1">guzik nr 1</string>
     <string name="button2">guzik nr 2</string>
 
-    <!-- plantsfragment & addplant -->
-    <string name="add">Dodaj nową roślinę</string>
+    <!-- plantsfragment -->
+    <string name="delete_plant">Usuń</string>
+    <string name="add_reminder">Przypomnij</string>
+    <string name="add_plant">Dodaj nową roślinę</string>
+
+    <!-- addplant -->
     <string name="photo">Zrób zdjęcie</string>
     <string name="gallery">Wybierz z galerii</string>
-    <string name="save">Zapisz</string>
     <string name="name">Nazwa</string>
+    <string name="description1">Dodatkowy opis</string>
+    <string name="save_plant">Zapisz</string>
 
     <!-- remindersfragment & addreminder" -->
 

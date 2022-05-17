@@ -26,7 +26,7 @@
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:background="@drawable/gradient_buttons"
-        android:text="@string/add"
+        android:text="@string/add_plant"
         android:foreground="?android:attr/selectableItemBackground"
         android:theme="@android:style/ThemeOverlay.Material.Dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,64 +36,3 @@
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.858" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".ui.list_plants.PlantsFragment">-->
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/linearLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="5dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/image"-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:padding="5dp"-->
-<!--            android:src="@drawable/ic_plants" />-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            android:padding="5dp">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/title"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="5dp" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/sub_title"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="5dp" />-->
-<!--        </LinearLayout>-->
-<!--    </LinearLayout>-->
-
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/button"-->
-<!--        android:layout_width="250dp"-->
-<!--        android:layout_height="49dp"-->
-<!--        android:background="@drawable/gradient_buttons"-->
-<!--        android:text="@string/add"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.496"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout"-->
-<!--        app:layout_constraintVertical_bias="0.858" />-->
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

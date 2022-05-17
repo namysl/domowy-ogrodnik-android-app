@@ -28,7 +28,7 @@
         android:background="@drawable/gradient_buttons"
         android:foreground="?android:attr/selectableItemBackground"
         android:theme="@android:style/ThemeOverlay.Material.Dark"
-        android:text="@string/save"
+        android:text="@string/save_plant"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

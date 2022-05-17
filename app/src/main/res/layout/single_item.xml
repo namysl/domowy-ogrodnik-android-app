@@ -2,46 +2,64 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="140dp"
     android:orientation="horizontal"
-    android:padding="10dp"
-    android:background="@drawable/gradient_list" >
+    android:padding="16dp"
+    android:background="@drawable/gradient_list"
+>
 
     <ImageView
-        android:id="@+id/iconIv"
-        android:src="@drawable/ic_plants"
+        android:id="@+id/imageView_photo"
         android:layout_width="80dp"
-        android:layout_height="80dp" />
+        android:layout_height="100dp" />
 
     <LinearLayout
-        android:layout_width="213dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/titleTv"
-            android:layout_width="213dp"
+            android:id="@+id/textView_name"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:text="Title"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/descTv"
-            android:layout_width="213dp"
-            android:layout_height="wrap_content"
-            android:text="Description" />
+            android:id="@+id/textView_description"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/button3"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:background="@drawable/gradient_buttons"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:src="@drawable/ic_delete"
-        android:theme="@android:style/ThemeOverlay.Material.Dark" />
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_delete"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:background="@drawable/gradient_buttons_small"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="@string/delete_plant"
+            android:theme="@android:style/ThemeOverlay.Material.Dark" />
+
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_info"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:background="@drawable/gradient_buttons_small"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="@string/add_reminder"
+            android:theme="@android:style/ThemeOverlay.Material.Dark" />
+    </LinearLayout>
 
 </LinearLayout>
