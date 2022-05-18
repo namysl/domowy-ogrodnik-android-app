@@ -1,3 +1,5 @@
 package com.example.domowyogrodnik
 
-class Model(val name: String?, val description: String?, val photo: String)
+import com.example.domowyogrodnik.db.PlantsDB
+
+class Model(val name: String?, val description: String?, val photo: String, val db_object: PlantsDB)

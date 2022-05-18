@@ -13,6 +13,7 @@
     <string name="delete_plant">Usuń</string>
     <string name="add_reminder">Przypomnij</string>
     <string name="add_plant">Dodaj nową roślinę</string>
+    <string name="deleted">Usunięto</string>
 
     <!-- addplant -->
     <string name="photo">Zrób zdjęcie</string>

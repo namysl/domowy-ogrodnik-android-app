@@ -73,6 +73,7 @@ class AddPlantActivity : AppCompatActivity() {
                     val newPlant = PlantsDB()
                     newPlant.path = picture
                     newPlant.name = editText!!.text.toString()
+                    //TODO kolejne pole!
 
                     CoroutineScope(IO).launch{
                         ClientDB.getInstance(applicationContext)?.appDatabase?.plantsDAO()?.insert(newPlant)
@@ -80,10 +81,11 @@ class AddPlantActivity : AppCompatActivity() {
 
                     Toast.makeText(view.context, "Zapisano", Toast.LENGTH_SHORT).show()
 
-                    //TODO
-                    //this.finish() //closes fragment
-                    //startActivity(Intent(this, MainActivity::class.java)) //moves to homepage
-                    this.onBackPressed() //back to gallery
+                    //TODO żeby odświeżało galerię albo wywalało do home
+                    this.finish() //closes fragment
+                    startActivity(Intent(this, MainActivity::class.java)) //moves to homepage
+
+                    //this.onBackPressed() //back to gallery
 
                 } catch (e: Exception){
                     Toast.makeText(view.context, "Dodaj zdjęcie", Toast.LENGTH_LONG).show()
