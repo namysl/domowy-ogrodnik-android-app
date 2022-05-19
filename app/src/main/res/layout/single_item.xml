@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="140dp"
     android:orientation="horizontal"
@@ -8,13 +9,37 @@
     android:background="@drawable/gradient_list"
 >
 
-    <ImageView
-        android:id="@+id/imageView_photo"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="80dp"
-        android:layout_height="100dp" />
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView_photo"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView_zoom"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_zoom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:layout_width="180dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
@@ -22,14 +47,15 @@
 
         <TextView
             android:id="@+id/textView_name"
-            android:layout_width="180dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/textView_description"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content" />
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -45,6 +71,7 @@
             android:background="@drawable/gradient_buttons_small"
             android:foreground="?android:attr/selectableItemBackground"
             android:text="@string/delete_plant"
+            android:textSize="15sp"
             android:theme="@android:style/ThemeOverlay.Material.Dark" />
 
         <TextView
@@ -59,6 +86,7 @@
             android:background="@drawable/gradient_buttons_small"
             android:foreground="?android:attr/selectableItemBackground"
             android:text="@string/add_reminder"
+            android:textSize="15sp"
             android:theme="@android:style/ThemeOverlay.Material.Dark" />
     </LinearLayout>
 

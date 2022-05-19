@@ -11,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.TextUtils.isEmpty
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -31,14 +32,15 @@ import java.lang.StringBuilder
 import java.security.SecureRandom
 import java.util.ArrayList
 
-class AddPlantActivity : AppCompatActivity() {
+class AddPlantActivity : AppCompatActivity(){
     private var buttonPhoto: Button? = null
     private var buttonGallery: Button? = null
     private var buttonSave: Button? = null
     private var imageView: ImageView? = null
-    private var editText: EditText? = null
+    private var editTextName: EditText? = null
+    private var editTextDescription: EditText? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addplant)
 
@@ -46,52 +48,57 @@ class AddPlantActivity : AppCompatActivity() {
         buttonGallery = findViewById(R.id.button_gallery)
         buttonSave = findViewById(R.id.button_save)
         imageView = findViewById(R.id.imageView)
-        editText = findViewById(R.id.editText)
+        editTextName = findViewById(R.id.editText_name)
+        editTextDescription = findViewById(R.id.editText_description)
 
         if (checkAndRequestPermissions(this@AddPlantActivity)){
-            buttonPhoto?.setOnClickListener{ view ->
-                //Toast.makeText(view.context, "Zdjęcie", Toast.LENGTH_SHORT).show()
+            buttonPhoto?.setOnClickListener{
                 val takePicture = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(takePicture, 0)
+                //TODO sprawdzic co z ta kompresja
             }
 
-            buttonGallery?.setOnClickListener{ view ->
-                //Toast.makeText(view.context, "Galeria", Toast.LENGTH_SHORT).show()
+            buttonGallery?.setOnClickListener{
                 val pickPhoto = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                 startActivityForResult(pickPhoto, 1)
             }
         }
 
-        buttonSave?.setOnClickListener { view ->
-            if (isEmpty(editText?.text.toString())) {
-                Toast.makeText(view.context, "Dodaj nazwę dla rośliny", Toast.LENGTH_LONG).show()
-            }
-            else{
-                try {
-                    val picture = saveToInternalStorage((imageView!!.drawable as BitmapDrawable).bitmap)
+        buttonSave?.setOnClickListener{ view ->
+            try{
+                val picture = saveToInternalStorage((imageView!!.drawable as BitmapDrawable).bitmap)
 
+                if (isEmpty(editTextName?.text.toString())){
+                    editTextName?.error = "Wymagane pole"
+                }
+                else {
                     val newPlant = PlantsDB()
                     newPlant.path = picture
-                    newPlant.name = editText!!.text.toString()
-                    //TODO kolejne pole!
+                    newPlant.name = editTextName!!.text.toString()
+                    newPlant.description = editTextDescription!!.text.toString()
 
-                    CoroutineScope(IO).launch{
+                    CoroutineScope(IO).launch {
                         ClientDB.getInstance(applicationContext)?.appDatabase?.plantsDAO()?.insert(newPlant)
                     }
 
                     Toast.makeText(view.context, "Zapisano", Toast.LENGTH_SHORT).show()
 
-                    //TODO żeby odświeżało galerię albo wywalało do home
+                    //TODO żeby odświeżało może galerię, bo do home już umiem wywalać
                     this.finish() //closes fragment
                     startActivity(Intent(this, MainActivity::class.java)) //moves to homepage
-
                     //this.onBackPressed() //back to gallery
-
-                } catch (e: Exception){
-                    Toast.makeText(view.context, "Dodaj zdjęcie", Toast.LENGTH_LONG).show()
                 }
+            } catch (e: Exception){
+                Toast.makeText(view.context, "Dodaj zdjęcie", Toast.LENGTH_LONG).show()
             }
         }
+
+        val animation = AnimationUtils.loadAnimation(this, R.anim.turn)
+        buttonPhoto?.startAnimation(animation)
+        buttonGallery?.startAnimation(animation)
+        buttonSave?.startAnimation(animation)
+        editTextName?.startAnimation(animation)
+        editTextDescription?.startAnimation(animation)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray){
@@ -142,8 +149,8 @@ class AddPlantActivity : AppCompatActivity() {
         const val AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         var rnd = SecureRandom()
 
-        // function to check permission
-        fun checkAndRequestPermissions(context: Activity?): Boolean {
+        //function to check permission
+        fun checkAndRequestPermissions(context: Activity?): Boolean{
             val wExtstorePermission = ContextCompat.checkSelfPermission(context!!, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             val cameraPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
             val listPermissionsNeeded: MutableList<String> = ArrayList()
@@ -163,13 +170,13 @@ class AddPlantActivity : AppCompatActivity() {
         }
     }
 
-    private fun randomString(len: Int): String {
+    private fun randomString(len: Int): String{
         val sb = StringBuilder(len)
         for (i in 0 until len) sb.append(AB[rnd.nextInt(AB.length)])
         return sb.toString()
     }
 
-    private fun saveToInternalStorage(bitmapImage: Bitmap): String {
+    private fun saveToInternalStorage(bitmapImage: Bitmap): String{
         val cw = ContextWrapper(this@AddPlantActivity)
 
         //filename as a random alphanumeric string

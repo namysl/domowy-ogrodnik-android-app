@@ -16,19 +16,19 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.FileNotFoundException
 
-class MyListAdapter(var current_context: Context, var resource: Int, var items:List<Model>): ArrayAdapter<Model>(current_context, resource, items){
+class MyListAdapter(private var current_context: Context, private var resource: Int, private var items:List<Model>): ArrayAdapter<Model>(current_context, resource, items){
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View{
         val layoutInflater: LayoutInflater = LayoutInflater.from(current_context)
         val view: View = layoutInflater.inflate(resource , null )
         val plant: Model = items[position]
 
-        val imageView: ImageView = view.findViewById(R.id.imageView_photo)
+        val imageViewPhoto: ImageView = view.findViewById(R.id.imageView_photo)
         val textViewName: TextView = view.findViewById(R.id.textView_name)
         val textViewDescription: TextView = view.findViewById(R.id.textView_description)
         val buttonDelete: Button = view.findViewById(R.id.button_delete)
         val buttonInfo: Button = view.findViewById(R.id.button_info)
 
-        loadImageFromStorage(plant.photo, imageView)
+        loadImageFromStorage(plant.photo, imageViewPhoto)
         textViewName.text = plant.name
         textViewDescription.text = plant.description
 
@@ -36,12 +36,17 @@ class MyListAdapter(var current_context: Context, var resource: Int, var items:L
             deleteEntryInDB(plant.db_object)
             deleteImageFromInternalStorage(plant.photo)
 
-            imageView.setImageResource(R.drawable.ic_plants)
+            imageViewPhoto.setImageResource(R.drawable.ic_plants)
             textViewName.text = context.getString(R.string.deleted)
             textViewDescription.text = ""
 
             buttonDelete.visibility = View.GONE
             buttonInfo.visibility = View.GONE
+
+            imageViewPhoto.setOnClickListener(null)
+
+            val icon: ImageView = view.findViewById(R.id.imageView_zoom)
+            icon.visibility = View.GONE
         }
 
         buttonInfo.setOnClickListener{
@@ -49,26 +54,21 @@ class MyListAdapter(var current_context: Context, var resource: Int, var items:L
             //TODO powiadomienia
         }
 
-        imageView.setOnClickListener{
-            Toast.makeText(context, "info ${plant.name}", Toast.LENGTH_SHORT).show()
-
-            val alertadd = AlertDialog.Builder(context)
+        imageViewPhoto.setOnClickListener{
+            val info = AlertDialog.Builder(context)
             val factory = LayoutInflater.from(context)
             val dialogView: View = factory.inflate(R.layout.picture_popup, null)
 
-            val dialogImageView: ImageView = dialogView.findViewById(R.id.dialog_imageview)
+            val infoImageView: ImageView = dialogView.findViewById(R.id.dialog_imageview)
 
-            loadImageFromStorage(plant.photo, dialogImageView)
+            loadImageFromStorage(plant.photo, infoImageView)
 
-            //TODO ładniejsze UI
-            alertadd.setView(dialogView)
-            alertadd.setIcon(R.drawable.ic_plants)
-            alertadd.setTitle(plant.name)
-            alertadd.setMessage(plant.description)
-
-            alertadd.setNeutralButton("Wróć") { _, _ -> }
-
-            alertadd.show()
+            info.setView(dialogView)
+            info.setIcon(R.drawable.ic_plants)
+            info.setTitle(plant.name)
+            //info.setMessage(plant.description)
+            info.setNeutralButton("Wróć") { _, _ -> }
+            info.show()
         }
 
         return view

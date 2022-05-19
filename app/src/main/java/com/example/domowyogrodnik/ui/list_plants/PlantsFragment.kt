@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ListView
 import androidx.fragment.app.Fragment
@@ -17,16 +18,16 @@ import com.example.domowyogrodnik.R
 import com.example.domowyogrodnik.db.ClientDB
 import com.example.domowyogrodnik.db.PlantsDB
 
-class PlantsFragment : Fragment() {
-    var button: Button? = null
+class PlantsFragment : Fragment(){
+    private var buttonAddNew: Button? = null
     lateinit var listView : ListView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
         val rootView = inflater.inflate(R.layout.fragment_plants, container, false)
 
-        button = rootView.findViewById(R.id.button)
+        buttonAddNew = rootView.findViewById(R.id.button)
 
-        button?.setOnClickListener{
+        buttonAddNew?.setOnClickListener{
             val intent = Intent (activity, AddPlantActivity::class.java)
             activity?.startActivity(intent)
         }
@@ -34,18 +35,18 @@ class PlantsFragment : Fragment() {
         listView = rootView.findViewById(R.id.listView)
         val list = mutableListOf<Model>()
 
-        class LoadFromDB : AsyncTask<Void?, Void?, List<PlantsDB>?>() {
-            override fun doInBackground(vararg p0: Void?): List<PlantsDB>? {
+        class LoadFromDB : AsyncTask<Void?, Void?, List<PlantsDB>?>(){
+            override fun doInBackground(vararg p0: Void?): List<PlantsDB>?{
                 //retrieve data from DB
                 return ClientDB.getInstance(requireContext())?.appDatabase?.plantsDAO()?.allDesc()
             }
 
-            override fun onPostExecute(db: List<PlantsDB>?) {
+            override fun onPostExecute(db: List<PlantsDB>?){
                 super.onPostExecute(db)
 
                 if (db != null) {
-                    for (element in db) {
-                        list.add(Model(element.name, "opisik", element.path!!, element))  //TODO
+                    for (element in db){
+                        list.add(Model(element.name, element.description, element.path!!, element))
                     }
 
                     listView.adapter = MyListAdapter(requireContext(), R.layout.single_item, list)
@@ -54,6 +55,10 @@ class PlantsFragment : Fragment() {
         }
 
         LoadFromDB().execute()
+
+        val animation = AnimationUtils.loadAnimation(rootView.context, R.anim.turn)
+        buttonAddNew?.startAnimation(animation)
+        listView.startAnimation(animation)
 
         return rootView
     }

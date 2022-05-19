@@ -16,4 +16,7 @@ class PlantsDB : Serializable {
 
     @ColumnInfo(name = "name")
     var name: String? = null
+
+    @ColumnInfo(name = "description")
+    var description: String? = null
 }
