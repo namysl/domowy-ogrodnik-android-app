@@ -1,4 +1,4 @@
-package com.example.domowyogrodnik
+package com.example.domowyogrodnik.models_adapters
 
 import android.app.AlertDialog
 import android.content.Context
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.example.domowyogrodnik.R
 import com.example.domowyogrodnik.db.ClientDB
 import com.example.domowyogrodnik.db.PlantsDB
 import kotlinx.coroutines.CoroutineScope
@@ -16,11 +17,11 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.FileNotFoundException
 
-class MyListAdapter(private var current_context: Context, private var resource: Int, private var items:List<Model>): ArrayAdapter<Model>(current_context, resource, items){
+class PlantAdapter(private var current_context: Context, private var resource: Int, private var items:List<PlantModel>): ArrayAdapter<PlantModel>(current_context, resource, items){
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View{
         val layoutInflater: LayoutInflater = LayoutInflater.from(current_context)
         val view: View = layoutInflater.inflate(resource , null )
-        val plant: Model = items[position]
+        val plant: PlantModel = items[position]
 
         val imageViewPhoto: ImageView = view.findViewById(R.id.imageView_photo)
         val textViewName: TextView = view.findViewById(R.id.textView_name)

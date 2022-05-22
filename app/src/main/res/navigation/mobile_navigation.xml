@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.domowyogrodnik.ui.home.HomeFragment"
+        android:name="com.example.domowyogrodnik.fragments.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_plants"
-        android:name="com.example.domowyogrodnik.ui.list_plants.PlantsFragment"
+        android:name="com.example.domowyogrodnik.fragments.PlantsFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_plants" />
 
     <fragment
         android:id="@+id/navigation_reminders"
-        android:name="com.example.domowyogrodnik.ui.list_reminders.RemindersFragment"
+        android:name="com.example.domowyogrodnik.fragments.RemindersFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_reminders" />
 </navigation>

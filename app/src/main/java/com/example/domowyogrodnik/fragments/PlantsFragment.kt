@@ -1,4 +1,4 @@
-package com.example.domowyogrodnik.ui.list_plants
+package com.example.domowyogrodnik.fragments
 
 
 import android.content.Intent
@@ -12,8 +12,8 @@ import android.widget.Button
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.example.domowyogrodnik.AddPlantActivity
-import com.example.domowyogrodnik.Model
-import com.example.domowyogrodnik.MyListAdapter
+import com.example.domowyogrodnik.models_adapters.PlantModel
+import com.example.domowyogrodnik.models_adapters.PlantAdapter
 import com.example.domowyogrodnik.R
 import com.example.domowyogrodnik.db.ClientDB
 import com.example.domowyogrodnik.db.PlantsDB
@@ -33,7 +33,7 @@ class PlantsFragment : Fragment(){
         }
 
         listView = rootView.findViewById(R.id.listView)
-        val list = mutableListOf<Model>()
+        val list = mutableListOf<PlantModel>()
 
         class LoadFromDB : AsyncTask<Void?, Void?, List<PlantsDB>?>(){
             override fun doInBackground(vararg p0: Void?): List<PlantsDB>?{
@@ -46,10 +46,10 @@ class PlantsFragment : Fragment(){
 
                 if (db != null) {
                     for (element in db){
-                        list.add(Model(element.name, element.description, element.path!!, element))
+                        list.add(PlantModel(element.name, element.description, element.path!!, element))
                     }
 
-                    listView.adapter = MyListAdapter(requireContext(), R.layout.single_item, list)
+                    listView.adapter = PlantAdapter(requireContext(), R.layout.single_item, list)
                 }
             }
         }

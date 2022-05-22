@@ -1,4 +1,4 @@
-package com.example.domowyogrodnik.ui.list_reminders
+package com.example.domowyogrodnik.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.domowyogrodnik.R
 
 class RemindersFragment : Fragment() {
-    var button: Button? = null
+    private var button: Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,

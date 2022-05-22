@@ -1,4 +1,4 @@
-package com.example.domowyogrodnik.ui.home
+package com.example.domowyogrodnik.fragments
 
 import android.animation.ValueAnimator
 import android.os.AsyncTask
