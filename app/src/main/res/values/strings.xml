@@ -5,10 +5,8 @@
     <string name="title_notifications">Twoje przypomnienia</string>
 
     <!-- home -->
-    <string name="template">Dodawaj rośliny i przypomnienia.</string>
-    <string name="template_stats">Tutaj statystyki</string>
-    <string name="button1">guzik nr 1</string>
-    <string name="button2">guzik nr 2</string>
+    <string name="stats_notempty">Liczba dodanych roślin:</string>
+    <string name="stats_empty">Nie dodano jeszcze żadnej rośliny</string>
 
     <!-- plantsfragment -->
     <string name="delete_plant">Usuń</string>

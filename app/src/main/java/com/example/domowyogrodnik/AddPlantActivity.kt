@@ -83,7 +83,7 @@ class AddPlantActivity : AppCompatActivity(){
 
                     Toast.makeText(view.context, "Zapisano", Toast.LENGTH_SHORT).show()
 
-                    //TODO żeby odświeżało może galerię, bo do home już umiem wywalać
+                    //TODO odświeżanie galerii?
                     this.finish() //closes fragment
                     startActivity(Intent(this, MainActivity::class.java)) //moves to homepage
                     //this.onBackPressed() //back to gallery
