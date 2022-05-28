@@ -49,7 +49,7 @@ class PlantsFragment : Fragment(){
                         list.add(PlantModel(element.name, element.description, element.path!!, element))
                     }
 
-                    listView.adapter = PlantAdapter(requireContext(), R.layout.single_item, list)
+                    listView.adapter = PlantAdapter(requireContext(), R.layout.single_item_plant, list)
                 }
             }
         }

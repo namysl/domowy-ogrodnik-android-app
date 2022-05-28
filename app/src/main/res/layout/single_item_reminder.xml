@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:background="@drawable/gradient_list" >
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/textView_description"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_delete"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:background="@drawable/gradient_buttons_small"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="@string/delete_plant"
+            android:textSize="15sp"
+            android:theme="@android:style/ThemeOverlay.Material.Dark" />
+
+    </LinearLayout>
+
+</LinearLayout>

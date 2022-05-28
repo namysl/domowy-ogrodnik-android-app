@@ -2,11 +2,13 @@ package com.example.domowyogrodnik.models_adapters
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.example.domowyogrodnik.AddReminderActivity
 import com.example.domowyogrodnik.R
 import com.example.domowyogrodnik.db.ClientDB
 import com.example.domowyogrodnik.db.PlantsDB
@@ -16,6 +18,7 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileNotFoundException
+
 
 class PlantAdapter(private var current_context: Context, private var resource: Int, private var items:List<PlantModel>): ArrayAdapter<PlantModel>(current_context, resource, items){
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View{
@@ -51,8 +54,16 @@ class PlantAdapter(private var current_context: Context, private var resource: I
         }
 
         buttonInfo.setOnClickListener{
-            Toast.makeText(context, "powiadomienie ${plant.name}", Toast.LENGTH_SHORT).show()
             //TODO powiadomienia
+
+//            val dene = Deneme(4.0, "Mustafa")
+//            val i = Intent(context, AddReminderActivity::class.java)
+//            i.putExtra("sampleObject", dene)
+//            context.startActivity(i)
+            val intent = Intent(context, AddReminderActivity::class.java)
+            intent.putExtra("plant_reminder", plant)
+            context.startActivities(arrayOf(intent))
+
         }
 
         imageViewPhoto.setOnClickListener{

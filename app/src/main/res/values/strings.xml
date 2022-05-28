@@ -22,5 +22,17 @@
     <string name="save_plant">Zapisz</string>
 
     <!-- remindersfragment & addreminder" -->
+    <string name="date">Data</string>
+    <string name="time">Czas</string>
+    <string name="frequency">Częstotliwość przypomnień w dniach</string>
+    <string-array name="chores">
+        <item>Podlewanie</item>
+        <item>Przesadzanie</item>
+        <item>Odkurzanie</item>
+        <item>Odżywianie</item>
+        <item>Przycinanie</item>
+        <item>Zraszanie</item>
+        <item>Odrobaczanie/odgrzybianie</item>
+    </string-array>
 
 </resources>
