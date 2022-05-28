@@ -83,10 +83,8 @@ class AddPlantActivity : AppCompatActivity(){
 
                     Toast.makeText(view.context, "Zapisano", Toast.LENGTH_SHORT).show()
 
-                    //TODO odświeżanie galerii?
                     this.finish() //closes fragment
                     startActivity(Intent(this, MainActivity::class.java)) //moves to homepage
-                    //this.onBackPressed() //back to gallery
                 }
             } catch (e: Exception){
                 Toast.makeText(view.context, "Dodaj zdjęcie", Toast.LENGTH_LONG).show()

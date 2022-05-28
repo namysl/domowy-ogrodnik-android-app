@@ -54,16 +54,9 @@ class PlantAdapter(private var current_context: Context, private var resource: I
         }
 
         buttonInfo.setOnClickListener{
-            //TODO powiadomienia
-
-//            val dene = Deneme(4.0, "Mustafa")
-//            val i = Intent(context, AddReminderActivity::class.java)
-//            i.putExtra("sampleObject", dene)
-//            context.startActivity(i)
             val intent = Intent(context, AddReminderActivity::class.java)
             intent.putExtra("plant_reminder", plant)
             context.startActivities(arrayOf(intent))
-
         }
 
         imageViewPhoto.setOnClickListener{

@@ -24,7 +24,7 @@
     <!-- remindersfragment & addreminder" -->
     <string name="date">Data</string>
     <string name="time">Czas</string>
-    <string name="frequency">Częstotliwość przypomnień w dniach</string>
+    <string name="frequency">Częstotliwość w dniach</string>
     <string-array name="chores">
         <item>Podlewanie</item>
         <item>Przesadzanie</item>

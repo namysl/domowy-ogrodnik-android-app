@@ -8,41 +8,82 @@
     android:padding="16dp"
     android:background="@drawable/gradient_list" >
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView_photo"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
-        android:layout_width="250dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:orientation="vertical">
-
         <TextView
-            android:id="@+id/textView_name"
-            android:layout_width="250dp"
+            android:id="@+id/textView_activity"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Maranta cokolwiek"
             android:textSize="22sp" />
 
         <TextView
-            android:id="@+id/textView_description"
-            android:layout_width="250dp"
+            android:id="@+id/textView_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Odrobaczanie/odgrzybianie"
             android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textView_date"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:hint="31/05/2022"
+                app:drawableStartCompat="@drawable/ic_calendar" />
+
+            <TextView
+                android:id="@+id/textView_time"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:hint="22:22"
+                app:drawableStartCompat="@drawable/ic_time" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_margin="0dp"
         android:orientation="vertical">
-
         <TextView
             android:id="@+id/empty"
             android:layout_width="match_parent"
-            android:layout_height="25dp" />
+            android:layout_height="35dp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_delete"
-            android:layout_width="100dp"
-            android:layout_height="48dp"
+            android:layout_width="80dp"
+            android:layout_height="45dp"
             android:background="@drawable/gradient_buttons_small"
             android:foreground="?android:attr/selectableItemBackground"
             android:text="@string/delete_plant"

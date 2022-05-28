@@ -25,6 +25,8 @@ class RemindersFragment : Fragment() {
             Toast.makeText(view.context, "Remindersss!", Toast.LENGTH_SHORT).show()
         }
 
+        //TODO adapter
+
         return rootView
     }
 }
