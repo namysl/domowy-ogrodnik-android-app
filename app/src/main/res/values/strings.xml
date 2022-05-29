@@ -24,7 +24,15 @@
     <!-- remindersfragment & addreminder" -->
     <string name="date">Data</string>
     <string name="time">Czas</string>
-    <string name="frequency">Częstotliwość w dniach</string>
+    <string name="frequency">Powtarzaj</string>
+
+    <string-array name="dwmy">
+        <item>dzień</item>
+        <item>tydzień</item>
+        <item>miesiąc</item>
+        <item>rok</item>
+    </string-array>
+
     <string-array name="chores">
         <item>Podlewanie</item>
         <item>Przesadzanie</item>

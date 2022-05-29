@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.domowyogrodnik.R
 import com.example.domowyogrodnik.db.ClientDB
-import com.example.domowyogrodnik.db.PlantsDB
+import com.example.domowyogrodnik.db.plants_table.PlantsDB
 
 
 class HomeFragment : Fragment() {

@@ -20,7 +20,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.domowyogrodnik.db.ClientDB
-import com.example.domowyogrodnik.db.PlantsDB
+import com.example.domowyogrodnik.db.plants_table.PlantsDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch

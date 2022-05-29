@@ -16,11 +16,11 @@ import com.example.domowyogrodnik.models_adapters.PlantModel
 import com.example.domowyogrodnik.models_adapters.PlantAdapter
 import com.example.domowyogrodnik.R
 import com.example.domowyogrodnik.db.ClientDB
-import com.example.domowyogrodnik.db.PlantsDB
+import com.example.domowyogrodnik.db.plants_table.PlantsDB
 
 class PlantsFragment : Fragment(){
     private var buttonAddNew: Button? = null
-    lateinit var listView : ListView
+    lateinit var listView: ListView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
         val rootView = inflater.inflate(R.layout.fragment_plants, container, false)

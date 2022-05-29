@@ -1,4 +1,4 @@
-package com.example.domowyogrodnik.db
+package com.example.domowyogrodnik.db.plants_table
 
 import androidx.room.*
 

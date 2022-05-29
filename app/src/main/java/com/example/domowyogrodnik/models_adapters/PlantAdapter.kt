@@ -11,7 +11,7 @@ import android.widget.*
 import com.example.domowyogrodnik.AddReminderActivity
 import com.example.domowyogrodnik.R
 import com.example.domowyogrodnik.db.ClientDB
-import com.example.domowyogrodnik.db.PlantsDB
+import com.example.domowyogrodnik.db.plants_table.PlantsDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,17 +20,18 @@ import java.io.FileInputStream
 import java.io.FileNotFoundException
 
 
-class PlantAdapter(private var current_context: Context, private var resource: Int, private var items:List<PlantModel>): ArrayAdapter<PlantModel>(current_context, resource, items){
+class PlantAdapter(private var current_context: Context, private var resource: Int, private var items:List<PlantModel>)
+    : ArrayAdapter<PlantModel>(current_context, resource, items){
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View{
         val layoutInflater: LayoutInflater = LayoutInflater.from(current_context)
         val view: View = layoutInflater.inflate(resource , null )
         val plant: PlantModel = items[position]
 
-        val imageViewPhoto: ImageView = view.findViewById(R.id.imageView_photo)
-        val textViewName: TextView = view.findViewById(R.id.textView_name)
+        val imageViewPhoto: ImageView = view.findViewById(R.id.imageView_plantphoto)
+        val textViewName: TextView = view.findViewById(R.id.textView_chore)
         val textViewDescription: TextView = view.findViewById(R.id.textView_description)
         val buttonDelete: Button = view.findViewById(R.id.button_delete)
-        val buttonInfo: Button = view.findViewById(R.id.button_info)
+        val buttonAddReminder: Button = view.findViewById(R.id.button_addreminder)
 
         loadImageFromStorage(plant.photo, imageViewPhoto)
         textViewName.text = plant.name
@@ -45,7 +46,7 @@ class PlantAdapter(private var current_context: Context, private var resource: I
             textViewDescription.text = ""
 
             buttonDelete.visibility = View.GONE
-            buttonInfo.visibility = View.GONE
+            buttonAddReminder.visibility = View.GONE
 
             imageViewPhoto.setOnClickListener(null)
 
@@ -53,7 +54,7 @@ class PlantAdapter(private var current_context: Context, private var resource: I
             icon.visibility = View.GONE
         }
 
-        buttonInfo.setOnClickListener{
+        buttonAddReminder.setOnClickListener{
             val intent = Intent(context, AddReminderActivity::class.java)
             intent.putExtra("plant_reminder", plant)
             context.startActivities(arrayOf(intent))

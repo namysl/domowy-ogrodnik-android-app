@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView_photo"
+            android:id="@+id/imageView_plantphoto"
             android:layout_width="80dp"
             android:layout_height="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -45,7 +45,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView_name"
+            android:id="@+id/textView_chore"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:textSize="22sp" />
@@ -79,7 +79,7 @@
             android:layout_height="5dp" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_info"
+            android:id="@+id/button_addreminder"
             android:layout_width="100dp"
             android:layout_height="48dp"
             android:background="@drawable/gradient_buttons_small"

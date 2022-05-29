@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1395" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/border_dashed.xml" value="0.1" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/buttons_gradient.xml" value="0.1" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/buttons_gradient_rainbow.xml" value="0.104" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/gradient.xml" value="0.1395" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/gradient_activities.xml" value="0.1775" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/gradient_button.xml" value="0.15" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/gradient_buttons.xml" value="0.1" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/gradient_navigation.xml" value="0.165" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/gradient_textview.xml" value="0.1" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/ic_baseline_notif.xml" value="0.1335" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2305" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2305" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2305" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.308" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/ic_plants.xml" value="0.1395" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/ic_reminders.xml" value="0.1395" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/drawable/pretty_buttons.xml" value="0.1" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/layout/activity_addplant.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/layout/activity_main.xml" value="0.2578125" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/layout/fragment_dashboard.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/layout/fragment_notifications.xml" value="0.37572254335260113" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/layout/fragment_plants.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/layout/fragment_reminders.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/layout/new_activity.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2916666666666667" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2305" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.118" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/mipmap-anydpi-v26/test.xml" value="0.308" />
+        <entry key="..\:/Users/eknam/Desktop/DomowyOgrodnik/app/src/main/res/xml/file_paths.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/gradient_buttons.xml" value="0.1635" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/gradient_buttons_small.xml" value="0.112" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/gradient_counter.xml" value="0.246" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/gradient_list.xml" value="0.1205" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/gradient_navigation.xml" value="0.1635" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/gradient_small_buttons.xml" value="0.1645" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/gradient_spinner.xml" value="0.123" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/gradient_textview.xml" value="0.1205" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/ic_delete.xml" value="0.155" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/ic_home.xml" value="0.155" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/ic_plants.xml" value="0.155" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/ic_reminders.xml" value="0.206" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/ic_zoom.xml" value="0.14" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/ic_zoom2.xml" value="0.14" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/myphoto_layout.xml" value="0.162" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/drawable/shine.xml" value="0.1245" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/activity_addplant.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/activity_addreminder.xml" value="0.33" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/activity_main.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/alert.xml" value="0.2994791666666667" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/fragment_home.xml" value="0.42105263157894735" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/fragment_plants.xml" value="0.2296875" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/fragment_reminders.xml" value="0.2296875" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/lstvw.xml" value="0.25" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/picture_popup.xml" value="0.2734375" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/single_item.xml" value="0.33" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/single_item_plant.xml" value="0.34564102564102567" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/single_item_reminder.xml" value="0.3446153846153846" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/single_plant_item.xml" value="0.2994791666666667" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/layout/spinner_layout.xml" value="0.35" />
+        <entry key="..\:/Users/eknam/Desktop/kotlin-android-app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2734375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
