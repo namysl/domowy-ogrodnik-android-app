@@ -1,8 +1,12 @@
 package com.example.domowyogrodnik
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.SystemClock
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -11,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.domowyogrodnik.db.ClientDB
 import com.example.domowyogrodnik.db.reminders_table.RemindersDB
 import com.example.domowyogrodnik.models_adapters.PlantModel
+import com.example.domowyogrodnik.models_adapters.ReminderModel
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -42,7 +47,6 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addreminder)
 
-        val intent = intent
         val plant = intent.getSerializableExtra("plant_reminder") as PlantModel?
 
         buttonSave = findViewById(R.id.button_save)
@@ -123,7 +127,21 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
                     ClientDB.getInstance(applicationContext)?.appDatabase?.remindersDAO()?.insert(newReminder)
                 }
 
-                //TODO work manager + alarm manager
+                //val new = [newReminder.date, newReminder.time, newReminder.chore, newReminder.plantPhoto, newReminder.plantPhoto]
+                val new1 = ReminderModel(newReminder.date, newReminder.time, newReminder.chore, newReminder.plantPhoto,
+                    newReminder.plantPhoto!!, newReminder)
+
+                println("elo obj: " + new1.plantName + new1.chore)
+
+                val formatDateTime = SimpleDateFormat("dd/mm/yyyyHH:mm", Locale.getDefault())
+                val formatted = formatDateTime.parse(newReminder.date + newReminder.time)
+                //println("elo2 " + formatDateTime + " " + formatted)
+
+                val calendar = Calendar.getInstance()
+                calendar.set(Calendar.HOUR_OF_DAY, 14)  //dwie godziny do tyłu?
+                calendar.set(Calendar.MINUTE, 23)
+                calendar.set(Calendar.SECOND, 0)
+                startAlarm(calendar, new1)
 
                 Toast.makeText(this, "Zapisano", Toast.LENGTH_SHORT).show()
                 this.finish() //closes fragment
@@ -146,6 +164,17 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
 
         spinnerChore?.startAnimation(animation)
         spinnerDropDown2?.startAnimation(animation)
+    }
+
+    private fun startAlarm(calendar: Calendar, new: ReminderModel) {
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(this, AlarmReceiver::class.java)
+        intent.putExtra("plant_photo", new.plantPhoto)
+        intent.putExtra("plant_name", new.plantName)
+        intent.putExtra("chore", new.chore)
+        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
+        println("elo czas zjebany " + calendar.timeInMillis)
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
     }
 
     private fun loadImageFromStorage(path: String?, img: ImageView?){

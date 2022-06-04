@@ -43,4 +43,6 @@
         <item>Odrobaczanie/odgrzybianie</item>
     </string-array>
 
+    <string name="notification_title">coś</string>
+    <string name="notification_text">elo siema</string>
 </resources>
