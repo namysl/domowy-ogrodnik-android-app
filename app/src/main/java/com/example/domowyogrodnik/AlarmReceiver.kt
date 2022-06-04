@@ -10,7 +10,7 @@ class AlarmReceiver: BroadcastReceiver() {
         val x = intent.getStringExtra("plant_photo")
         val y = intent.getStringExtra("plant_name")
         val z = intent.getStringExtra("chore")
-        println("elo tu jest x: " + x)
+        println("elo tu jest x: " + y +" "+ z)
         val notificationUtils = NotificationUtils(context, x, y, z)
         val notification = notificationUtils.getNotificationBuilder().build()
         notificationUtils.getManager().notify(150, notification)
