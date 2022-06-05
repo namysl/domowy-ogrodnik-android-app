@@ -84,7 +84,7 @@
         android:layout_marginTop="4dp"
         android:background="@drawable/gradient_textview"
         android:hint="@string/description"
-        android:inputType="textVisiblePassword|textCapSentences|textMultiLine"
+        android:inputType="textVisiblePassword|textMultiLine"
         android:scrollHorizontally="false"
         android:textAlignment="center"
         android:textSize="20sp"

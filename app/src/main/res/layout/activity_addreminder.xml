@@ -26,13 +26,13 @@
         android:id="@+id/spinner"
         android:layout_width="320dp"
         android:layout_height="48dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/gradient_textview"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_frequency_num"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_frequency_dwmy"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
@@ -67,7 +67,7 @@
     <TextView
         android:id="@+id/tv_description"
         android:layout_width="210dp"
-        android:layout_height="78dp"
+        android:layout_height="69dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/gradient_textview"
         android:gravity="center"
@@ -77,7 +77,7 @@
         android:scrollbars="vertical"
         android:scrollHorizontally="false"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
@@ -119,29 +119,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
-    <EditText
-        android:id="@+id/editText_frequency_num"
-        android:layout_width="155dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/gradient_textview"
-        android:gravity="center"
-        android:hint="@string/frequency"
-        android:inputType="number"
-        android:paddingHorizontal="10dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_date" />
-
     <Spinner
         android:id="@+id/spinner_frequency_dwmy"
-        android:layout_width="155dp"
+        android:layout_width="320dp"
         android:layout_height="55dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="44dp"
         android:background="@drawable/gradient_textview"
         android:gravity="center"
         android:inputType="number"
@@ -150,8 +132,7 @@
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/editText_frequency_num"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_time" />
 
     <ImageView

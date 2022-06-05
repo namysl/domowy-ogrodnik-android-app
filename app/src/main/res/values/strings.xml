@@ -27,10 +27,12 @@
     <string name="frequency">Powtarzaj</string>
 
     <string-array name="dwmy">
-        <item>dzień</item>
-        <item>tydzień</item>
-        <item>miesiąc</item>
-        <item>rok</item>
+        <item>powtarzanie wyłączone</item>
+        <item>powtarzaj codziennie</item>
+        <item>powtarzaj co tydzień</item>
+        <item>powtarzaj co dwa tygodnie</item>
+        <item>powtarzaj co miesiąc</item>
+        <item>powtarzaj co trzy miesiące</item>
     </string-array>
 
     <string-array name="chores">

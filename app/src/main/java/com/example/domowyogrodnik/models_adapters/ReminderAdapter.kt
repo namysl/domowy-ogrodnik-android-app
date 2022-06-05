@@ -36,6 +36,7 @@ class ReminderAdapter(private var current_context: Context, private var resource
         val textViewPlantName: TextView = view.findViewById(R.id.textView_plantname)
         val textViewDate: TextView = view.findViewById(R.id.textView_date)
         val textViewTime: TextView = view.findViewById(R.id.textView_time)
+        val textViewFrequency: TextView = view.findViewById(R.id.textView_frequency)
         val buttonDelete: Button = view.findViewById(R.id.button_delete)
 
         loadImageFromStorage(reminder.plantPhoto, imageViewPlantPhoto)
@@ -43,6 +44,7 @@ class ReminderAdapter(private var current_context: Context, private var resource
         textViewPlantName.text = reminder.plantName
         textViewDate.text = reminder.date
         textViewTime.text = reminder.time
+        textViewFrequency.text = reminder.frequency
 
         buttonDelete.setOnClickListener{
             deleteEntryInDB(reminder.db_object)
@@ -53,6 +55,7 @@ class ReminderAdapter(private var current_context: Context, private var resource
             textViewPlantName.text = ""
             textViewDate.text = ""
             textViewTime.text = ""
+            textViewFrequency.text = ""
             buttonDelete.visibility = View.GONE
 
             // cancel the alarm

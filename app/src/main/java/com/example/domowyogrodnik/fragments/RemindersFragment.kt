@@ -34,7 +34,7 @@ class RemindersFragment : Fragment() {
 
                 if (db != null) {
                     for (element in db){
-                        list.add(ReminderModel(element.date, element.time, element.chore, element.plantName, element.plantPhoto!!, element))
+                        list.add(ReminderModel(element.date, element.time, element.chore, element.frequency, element    .plantName, element.plantPhoto!!, element))
                     }
 
                     listView.adapter = ReminderAdapter(requireContext(), R.layout.single_item_reminder, list)

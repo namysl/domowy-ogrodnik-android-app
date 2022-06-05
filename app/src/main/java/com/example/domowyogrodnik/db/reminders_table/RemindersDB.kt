@@ -20,6 +20,9 @@ class RemindersDB: Serializable {
     @ColumnInfo(name = "chore")
     var chore: String? = null
 
+    @ColumnInfo(name = "frequency")
+    var frequency: String? = null
+
     @ColumnInfo(name = "plantName")
     var plantName: String? = null
 
