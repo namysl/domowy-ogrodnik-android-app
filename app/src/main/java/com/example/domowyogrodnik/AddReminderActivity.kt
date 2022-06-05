@@ -117,7 +117,7 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
                 Toast.makeText(this, "Dodaj datę i godzinę", Toast.LENGTH_SHORT).show()
             }
             else{
-                println("LOGCAT date time" + inputDate?.text + " " + inputTime?.text)
+                println("LOGCAT date time ${inputDate?.text} ${inputTime?.text}")
 
                 val newReminder = RemindersDB()
                 newReminder.date = inputDate?.text.toString()
