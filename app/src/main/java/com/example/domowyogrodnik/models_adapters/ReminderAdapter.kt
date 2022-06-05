@@ -1,6 +1,9 @@
 package com.example.domowyogrodnik.models_adapters
 
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +12,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.domowyogrodnik.AlarmReceiver
 import com.example.domowyogrodnik.R
 import com.example.domowyogrodnik.db.ClientDB
 import com.example.domowyogrodnik.db.reminders_table.RemindersDB
@@ -18,6 +22,7 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileNotFoundException
+
 
 class ReminderAdapter(private var current_context: Context, private var resource: Int, private var items:List<ReminderModel>)
     : ArrayAdapter<ReminderModel>(current_context, resource, items) {
@@ -49,6 +54,14 @@ class ReminderAdapter(private var current_context: Context, private var resource
             textViewDate.text = ""
             textViewTime.text = ""
             buttonDelete.visibility = View.GONE
+
+            // cancel the alarm
+            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val intent = Intent(context, AlarmReceiver::class.java)
+            val pendingIntent = PendingIntent.getBroadcast(context, reminder.db_object.id,
+                                                           intent, PendingIntent.FLAG_UPDATE_CURRENT)
+            pendingIntent.cancel()
+            alarmManager.cancel(pendingIntent)
         }
 
         return view

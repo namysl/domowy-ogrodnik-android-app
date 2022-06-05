@@ -161,8 +161,8 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
         intent.putExtra("plantChore", plantInfo[2])
 
         // requestCode should be unique to allow multiple notifications
-        val pendingIntent = PendingIntent.getBroadcast(this,
-            requestID.toInt(), intent, FLAG_UPDATE_CURRENT)
+        val pendingIntent = PendingIntent.getBroadcast(this, requestID.toInt(),
+                                                       intent, FLAG_UPDATE_CURRENT)
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
     }
