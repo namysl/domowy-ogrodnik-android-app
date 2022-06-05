@@ -11,8 +11,8 @@ class AlarmReceiver: BroadcastReceiver(){
         val plantName = intent.getStringExtra("plantName")
         val plantChore = intent.getStringExtra("plantChore")
 
-        val notificationUtils = NotificationUtils(context, plantPhoto, plantName, plantChore)
-        val notification = notificationUtils.getNotificationBuilder().build()
-        notificationUtils.getManager().notify(150, notification)
+        val alarmNotificationBuilder = AlarmNotificationBuilder(context, plantPhoto, plantName, plantChore)
+        val notification = alarmNotificationBuilder.getNotificationBuilder().build()
+        alarmNotificationBuilder.getManager().notify(150, notification)
     }
 }

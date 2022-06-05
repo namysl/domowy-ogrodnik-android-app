@@ -15,8 +15,8 @@ import android.text.Spanned
 import androidx.core.app.NotificationCompat
 
 
-class  NotificationUtils(base: Context, private var plantPhoto: String?,
-                         private var plantName: String?, private var plantChore: String?): ContextWrapper(base){
+class  AlarmNotificationBuilder(base: Context, private var plantPhoto: String?,
+                                private var plantName: String?, private var plantChore: String?): ContextWrapper(base){
     private val channelID = "PlantsID"
     private val channelName = "PlantsAppAlert"
 

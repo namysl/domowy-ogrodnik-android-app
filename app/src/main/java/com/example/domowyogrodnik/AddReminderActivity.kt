@@ -1,6 +1,7 @@
 package com.example.domowyogrodnik
 
 import android.app.AlarmManager
+import android.app.AlertDialog
 import android.app.PendingIntent
 import android.app.PendingIntent.FLAG_UPDATE_CURRENT
 import android.content.Context
@@ -116,7 +117,7 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
                 Toast.makeText(this, "Dodaj datę i godzinę", Toast.LENGTH_SHORT).show()
             }
             else{
-                println("elo " + inputDate?.text + " " + inputTime?.text)
+                println("LOGCAT date time" + inputDate?.text + " " + inputTime?.text)
 
                 val newReminder = RemindersDB()
                 newReminder.date = inputDate?.text.toString()
@@ -126,28 +127,51 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
                 newReminder.plantName = plant.name
                 newReminder.plantPhoto = plant.photo
 
-                CoroutineScope(Dispatchers.IO).launch {
-                    val reminderID: Long? =
-                        ClientDB.getInstance(applicationContext)?.appDatabase?.remindersDAO()?.insert(newReminder)
+                if(newReminder.frequency == "powtarzaj codziennie" && newReminder.chore == "podlewanie") {
+                    val alertDialog = AlertDialog.Builder(this)
+                        .setIcon(R.drawable.ic_warning)
+                        .setTitle("Czy utworzyć przypomnienie?")
+                        .setMessage("Codzienne podlewanie może zaszkodzić Twoim roślinom! " +
+                                "Czy na pewno chcesz dodać to przypomnienie?")
 
-                    val array = arrayOf(plant.photo, plant.name, spinnerChore?.selectedItem.toString())
+                    alertDialog.setPositiveButton("Tak") { _, _ ->
+                        addAlarmAndFinish(newReminder)
+                    }
 
-                    val formatDateTime = SimpleDateFormat("dd/MM/yyyyHH:mm", Locale.getDefault())
-                    val formatted = formatDateTime.parse(newReminder.date + newReminder.time)
+                    alertDialog.setNegativeButton("Anuluj") { _, _ -> }
 
-                    val calendar = Calendar.getInstance()
-                    calendar.time = formatted!!
-
-                    startAlarm(calendar, array, reminderID!!)
-                    println("elo show me id!!! $reminderID")
+                    alertDialog.show()
                 }
-
-                Toast.makeText(this, "Zapisano", Toast.LENGTH_SHORT).show()
-                this.finish() // closes fragment
-                startActivity(Intent(this, MainActivity::class.java)) // moves to homepage
+                else{
+                    addAlarmAndFinish(newReminder)
+                }
             }
         }
         animateView(plant)
+    }
+
+    private fun addAlarmAndFinish(newReminder: RemindersDB){
+        CoroutineScope(Dispatchers.IO).launch {
+            val reminderID: Long? =
+                ClientDB.getInstance(applicationContext)?.appDatabase?.remindersDAO()
+                    ?.insert(newReminder)
+
+            val array = arrayOf(newReminder.plantPhoto,
+                                newReminder.plantName,
+                                spinnerChore?.selectedItem.toString())
+
+            val formatDateTime = SimpleDateFormat("dd/MM/yyyyHH:mm", Locale.getDefault())
+            val formatted = formatDateTime.parse(newReminder.date + newReminder.time)
+
+            val calendar = Calendar.getInstance()
+            calendar.time = formatted!!
+
+            startAlarm(calendar, array, reminderID!!)
+            println("LOGCAT reminderID $reminderID")
+        }
+        Toast.makeText(this, "Zapisano", Toast.LENGTH_SHORT).show()
+        this.finish() // closes fragment
+        startActivity(Intent(this, MainActivity::class.java)) // moves to homepage
     }
 
     private fun startAlarm(calendar: Calendar, plantInfo: Array<String?>, requestID: Long){
