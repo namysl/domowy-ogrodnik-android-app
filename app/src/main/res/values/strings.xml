@@ -34,15 +34,13 @@
     </string-array>
 
     <string-array name="chores">
-        <item>Podlewanie</item>
-        <item>Przesadzanie</item>
-        <item>Odkurzanie</item>
-        <item>Odżywianie</item>
-        <item>Przycinanie</item>
-        <item>Zraszanie</item>
-        <item>Odrobaczanie/odgrzybianie</item>
+        <item>podlewanie</item>
+        <item>przesadzanie</item>
+        <item>odkurzanie</item>
+        <item>odżywianie</item>
+        <item>przycinanie</item>
+        <item>zraszanie</item>
+        <item>pestycydy</item>
     </string-array>
 
-    <string name="notification_title">coś</string>
-    <string name="notification_text">elo siema</string>
 </resources>

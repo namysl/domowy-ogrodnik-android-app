@@ -4,14 +4,14 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 
-class AlarmReceiver: BroadcastReceiver() {
-    override fun onReceive(context: Context, intent: Intent) {
+class AlarmReceiver: BroadcastReceiver(){
+    override fun onReceive(context: Context, intent: Intent){
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-        val x = intent.getStringExtra("plant_photo")
-        val y = intent.getStringExtra("plant_name")
-        val z = intent.getStringExtra("chore")
-        println("elo tu jest x: " + y +" "+ z)
-        val notificationUtils = NotificationUtils(context, x, y, z)
+        val plantPhoto = intent.getStringExtra("plantPhoto")
+        val plantName = intent.getStringExtra("plantName")
+        val plantChore = intent.getStringExtra("plantChore")
+
+        val notificationUtils = NotificationUtils(context, plantPhoto, plantName, plantChore)
         val notification = notificationUtils.getNotificationBuilder().build()
         notificationUtils.getManager().notify(150, notification)
     }

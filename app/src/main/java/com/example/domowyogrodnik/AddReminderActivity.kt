@@ -63,6 +63,7 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
         loadImageFromStorage(plant?.photo, imageViewPic)
         tvName?.text = plant?.name
 
+        // if not empty display description text field and make it scrollable
         if(plant?.description!!.isNotEmpty()){
             tvDescription?.text = plant.description
             tvDescription?.movementMethod = ScrollingMovementMethod()
@@ -71,18 +72,21 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
             tvDescription?.visibility = View.INVISIBLE
         }
 
+        // days/weeks/months/years spinner (cyclic notifications)
         ArrayAdapter.createFromResource(this, R.array.dwmy, android.R.layout.simple_spinner_item)
             .also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinnerFrequency?.adapter = adapter
             }
 
+        // chore spinner
         ArrayAdapter.createFromResource(this, R.array.chores, android.R.layout.simple_spinner_item)
             .also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinnerChore?.adapter = adapter
             }
 
+        // date picker
         inputDate?.setOnClickListener{
             val datePicker = MaterialDatePicker.Builder.datePicker().build()
 
@@ -93,15 +97,16 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
 
                 inputDate?.text = (formatDate.format(Date(it + offset)))
             }
-            datePicker.show(supportFragmentManager, "DATE_PICKER_TAG")
+            datePicker.show(supportFragmentManager, "date_picker")
         }
 
+        // time picker
         inputTime?.setOnClickListener{
             val timerPicker = MaterialTimePicker.Builder().setTimeFormat(TimeFormat.CLOCK_24H).build()
 
             timerPicker.addOnPositiveButtonClickListener{
-                val minute = if (timerPicker.minute in 0..9) "0${timerPicker.minute}" else timerPicker.minute
                 val hour = if (timerPicker.hour in 0..9) "0${timerPicker.hour}" else timerPicker.hour
+                val minute = if (timerPicker.minute in 0..9) "0${timerPicker.minute}" else timerPicker.minute
 
                 inputTime?.text = "${hour}:${minute}"
             }
@@ -123,40 +128,42 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
                 newReminder.plantPhoto = plant.photo
 
                 CoroutineScope(Dispatchers.IO).launch {
-                    ClientDB.getInstance(applicationContext)?.appDatabase?.remindersDAO()?.insert(newReminder)
+                    val reminderID: Long? =
+                        ClientDB.getInstance(applicationContext)?.appDatabase?.remindersDAO()?.insert(newReminder)
+
+                    val array = arrayOf(plant.photo, plant.name, spinnerChore?.selectedItem.toString())
+
+                    val formatDateTime = SimpleDateFormat("dd/MM/yyyyHH:mm", Locale.getDefault())
+                    val formatted = formatDateTime.parse(newReminder.date + newReminder.time)
+
+                    val calendar = Calendar.getInstance()
+                    calendar.time = formatted!!
+
+                    startAlarm(calendar, array, reminderID!!)
+                    println("elo show me id!!! $reminderID")
                 }
 
-                val formatDateTime = SimpleDateFormat("dd/mm/yyyyHH:mm", Locale.getDefault())
-                val formatted = formatDateTime.parse(newReminder.date + newReminder.time)
-                //println("elo2 " + formatDateTime + " " + formatted)
-
-                val calendar = Calendar.getInstance()
-                calendar.set(Calendar.HOUR_OF_DAY, 14)  //16->14, dwie godziny do tyłu?
-                calendar.set(Calendar.MINUTE, 23)
-                calendar.set(Calendar.SECOND, 0)
-
-                val new1 = arrayOf(plant.photo, plant.name, spinnerChore?.selectedItem.toString())
-                println("elo new1: " + new1[0] +" " + new1[1] + " " + new1[2])
-                startAlarm(calendar, new1)
-
                 Toast.makeText(this, "Zapisano", Toast.LENGTH_SHORT).show()
-                this.finish() //closes fragment
-                startActivity(Intent(this, MainActivity::class.java)) //moves to homepage
+                this.finish() // closes fragment
+                startActivity(Intent(this, MainActivity::class.java)) // moves to homepage
             }
         }
         animateView(plant)
     }
 
-    private fun startAlarm(calendar: Calendar, new: Array<String?>) {
+    private fun startAlarm(calendar: Calendar, plantInfo: Array<String?>, requestID: Long){
+        // prepares the alarm manager
         val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(this, AlarmReceiver::class.java)
-        println("elo tu start: " + new[1] + " " + new[2])
-        intent.putExtra("plant_photo", new[0])
-        intent.putExtra("plant_name", new[1])
-        intent.putExtra("chore", new[2])
-        //requestCode powinien być unikalny
-        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, FLAG_UPDATE_CURRENT)
-        //TODO czas 2h
+
+        intent.putExtra("plantPhoto", plantInfo[0])
+        intent.putExtra("plantName", plantInfo[1])
+        intent.putExtra("plantChore", plantInfo[2])
+
+        // requestCode should be unique to allow multiple notifications
+        val pendingIntent = PendingIntent.getBroadcast(this,
+            requestID.toInt(), intent, FLAG_UPDATE_CURRENT)
+
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
     }
 
@@ -173,7 +180,6 @@ class AddReminderActivity: Serializable, AppCompatActivity() {  //(val db_object
         editTextFrequency?.startAnimation(animation)
         spinnerFrequency?.startAnimation(animation)
         spinnerDropDown1?.startAnimation(animation)
-
         spinnerChore?.startAnimation(animation)
         spinnerDropDown2?.startAnimation(animation)
     }

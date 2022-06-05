@@ -13,7 +13,7 @@ interface RemindersDAO {
     fun allDesc(): List<RemindersDB>
 
     @Insert
-    fun insert(remindersDB: RemindersDB)
+    fun insert(remindersDB: RemindersDB): Long
 
     @Delete
     fun delete(remindersDB: RemindersDB)
